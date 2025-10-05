@@ -59,7 +59,7 @@ services:
     mem_limit: 512m
     mem_reservation: 256m
     networks: [ infra ]
-    ports: [ "27017:27017" ]
+    expose: [ "27017" ]
     restart: unless-stopped
     volumes:
       - dickobrazz-mongo-data:/data/db
@@ -89,7 +89,7 @@ services:
     mem_limit: 256m
     mem_reservation: 128m
     networks: [ infra ]
-    ports: [ "6379:6379" ]
+    expose: [ "6379" ]
     restart: unless-stopped
     volumes:
       - dickobrazz-redis-data:/data
