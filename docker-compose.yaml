@@ -93,6 +93,46 @@ services:
     restart: unless-stopped
     volumes:
       - dickobrazz-redis-data:/data
+  backup-dickobrazz-mongo:
+    image: offen/docker-volume-backup:v2
+    container_name: backup-dickobrazz-mongo
+    environment:
+      TZ: ${TZ}
+      AWS_ENDPOINT: ${AWS_ENDPOINT}
+      AWS_ENDPOINT_PROTO: ${AWS_ENDPOINT_PROTO}
+      AWS_S3_BUCKET_NAME: ${AWS_S3_BUCKET_NAME}
+      AWS_S3_PATH: ${AWS_S3_DEPLOYMENTS_DICKOBRAZZ_MONGO_PATH}
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+      BACKUP_CRON_EXPRESSION: ${BACKUP_CRON_EXPRESSION}
+      BACKUP_FILENAME: ${BACKUP_DEPLOYMENTS_DICKOBRAZZ_MONGO_FILENAME}
+      BACKUP_PRUNING_PREFIX: ${BACKUP_DEPLOYMENTS_DICKOBRAZZ_MONGO_PRUNING_PREFIX}
+      BACKUP_RETENTION_DAYS: ${BACKUP_RETENTION_DAYS}
+    volumes:
+      - dickobrazz-mongo-data:/backup/dickobrazz/mongo:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    networks: [infra]
+    restart: unless-stopped
+  backup-dickobrazz-redis:
+    image: offen/docker-volume-backup:v2
+    container_name: backup-dickobrazz-redis
+    environment:
+      TZ: ${TZ}
+      AWS_ENDPOINT: ${AWS_ENDPOINT}
+      AWS_ENDPOINT_PROTO: ${AWS_ENDPOINT_PROTO}
+      AWS_S3_BUCKET_NAME: ${AWS_S3_BUCKET_NAME}
+      AWS_S3_PATH: ${AWS_S3_DEPLOYMENTS_DICKOBRAZZ_REDIS_PATH}
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+      BACKUP_CRON_EXPRESSION: ${BACKUP_CRON_EXPRESSION}
+      BACKUP_FILENAME: ${BACKUP_DEPLOYMENTS_DICKOBRAZZ_REDIS_FILENAME}
+      BACKUP_PRUNING_PREFIX: ${BACKUP_DEPLOYMENTS_DICKOBRAZZ_REDIS_PRUNING_PREFIX}
+      BACKUP_RETENTION_DAYS: ${BACKUP_RETENTION_DAYS}
+    volumes:
+      - dickobrazz-redis-data:/backup/dickobrazz/redis:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    networks: [infra]
+    restart: unless-stopped
 volumes:
   dickobrazz-mongo-data:
     driver: local
