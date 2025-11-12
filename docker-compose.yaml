@@ -5,7 +5,7 @@ networks:
     name: infra
 services:
   dickobrazz:
-    image: ghcr.io/mairwunnx/dickobrazz:1.24.1
+    image: ghcr.io/mairwunnx/dickobrazz:1.24.2
     command: ["/usr/local/bin/dickobrazz"]
     container_name: dickobrazz-bot
     cpus: '0.25'
