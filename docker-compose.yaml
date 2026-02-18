@@ -24,7 +24,6 @@ services:
       RANDOMORG_TOKEN: ${RANDOMORG_TOKEN}
       CROSS_SERVER_TOKEN: ${CROSS_SERVER_TOKEN}
       SESSION_SECRET: ${SESSION_SECRET}
-      SESSION_TTL_SEC: ${SESSION_TTL_SEC}
       TZ: ${TZ}
     healthcheck:
       interval: 30s
@@ -142,7 +141,6 @@ services:
       RANDOMORG_TOKEN: ${RANDOMORG_TOKEN}
       TEST_CROSS_SERVER_TOKEN: ${TEST_CROSS_SERVER_TOKEN}
       TEST_SESSION_SECRET: ${TEST_SESSION_SECRET}
-      SESSION_TTL_SEC: ${SESSION_TTL_SEC}
       TZ: ${TZ}
     healthcheck:
       interval: 30s
