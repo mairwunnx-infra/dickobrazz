@@ -1,0 +1,18 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  - job_name: "prometheus"
+    static_configs:
+      - targets: ["localhost:9090"]
+
+  - job_name: "dickobrazz-bot"
+    metrics_path: /metrics
+    static_configs:
+      - targets: ["dickobrazz-bot:9091"]
+
+  - job_name: "dickobrazz-server"
+    metrics_path: /api/metrics
+    static_configs:
+      - targets: ["dickobrazz-server:3030"]
