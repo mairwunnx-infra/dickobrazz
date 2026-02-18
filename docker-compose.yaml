@@ -30,7 +30,7 @@ services:
       interval: 30s
       retries: 3
       start_period: 20s
-      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:3030/api/health"]
+      test: ["CMD", "bun", "-e", "const r = await fetch('http://localhost:3030/health'); if (!r.ok) process.exit(1);"]
       timeout: 10s
     logging:
       driver: local
@@ -148,7 +148,7 @@ services:
       interval: 30s
       retries: 3
       start_period: 20s
-      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:3030/api/health"]
+      test: ["CMD", "bun", "-e", "const r = await fetch('http://localhost:3030/health'); if (!r.ok) process.exit(1);"]
       timeout: 10s
     logging:
       driver: local
