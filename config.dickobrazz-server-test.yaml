@@ -1,0 +1,20 @@
+svc:
+  port: 3030
+  db:
+    mongo:
+      url: "${TEST_MONGO_URL}"
+    redis:
+      url: "${TEST_REDIS_URL}"
+  rnd:
+    rndorg:
+      enabled: false
+      token: "${RANDOMORG_TOKEN}"
+    urandom:
+      enabled: true
+  stt:
+    enabled: false
+  csot:
+    token: "${TEST_CROSS_SERVER_TOKEN}"
+  auth:
+    session_secret: "${TEST_SESSION_SECRET}"
+    session_ttl_sec: ${SESSION_TTL_SEC:-604800}

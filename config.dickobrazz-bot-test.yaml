@@ -1,0 +1,7 @@
+bot:
+  csot: "${TEST_CROSS_SERVER_TOKEN}"
+  server:
+    base_url: "http://dickobrazz-server-test:3030/"
+  tg:
+    token: "${TEST_BOT_TG_TOKEN}"
+    env: "test"
