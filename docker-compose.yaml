@@ -24,6 +24,7 @@ services:
       RANDOMORG_TOKEN: ${RANDOMORG_TOKEN}
       CROSS_SERVER_TOKEN: ${CROSS_SERVER_TOKEN}
       SESSION_SECRET: ${SESSION_SECRET}
+      TELEGRAM_BOT_TOKEN: ${BOT_TG_TOKEN}
       TZ: ${TZ}
     healthcheck:
       interval: 30s
@@ -40,7 +41,7 @@ services:
     mem_reservation: 64m
     networks: [ infra ]
     expose: [ "3030" ]
-    restart: "no"
+    restart: unless-stopped
   dickobrazz-bot:
     image: ghcr.io/mairwunnx-infra/dickobrazz-bot:1.34.2
     container_name: dickobrazz-bot
@@ -141,6 +142,7 @@ services:
       RANDOMORG_TOKEN: ${RANDOMORG_TOKEN}
       TEST_CROSS_SERVER_TOKEN: ${TEST_CROSS_SERVER_TOKEN}
       TEST_SESSION_SECRET: ${TEST_SESSION_SECRET}
+      TELEGRAM_BOT_TOKEN: ${TEST_BOT_TG_TOKEN}
       TZ: ${TZ}
     healthcheck:
       interval: 30s
@@ -157,7 +159,7 @@ services:
     mem_reservation: 64m
     networks: [ infra ]
     expose: [ "3030" ]
-    restart: "no"
+    restart: unless-stopped
   dickobrazz-bot-test:
     image: ghcr.io/mairwunnx-infra/dickobrazz-bot-test:1.34.2
     container_name: dickobrazz-bot-test
