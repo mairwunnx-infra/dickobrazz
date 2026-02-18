@@ -13,12 +13,12 @@ Dickobrazz стек для production/test окружений в инфраст�
 - **backup** контейнеры только для production томов.
 
 Кастомные образы собираются из upstream-образов и получают конфигурацию через встроенный `config.yaml`:
-- `Dockerfile.dickobrazz-bot`
-- `Dockerfile.dickobrazz-bot-test`
-- `Dockerfile.dickobrazz-server`
-- `Dockerfile.dickobrazz-server-test`
+- `docker-specs/Dockerfile.dickobrazz-bot`
+- `docker-specs/Dockerfile.dickobrazz-bot-test`
+- `docker-specs/Dockerfile.dickobrazz-server`
+- `docker-specs/Dockerfile.dickobrazz-server-test`
 
-Автосборка и публикация в GHCR настраивается workflow-файлами в `.github/workflows/`.
+Автосборка и публикация в GHCR настраивается workflow-файлом `.github/workflows/build-dickobrazz-images.yml`.
 
 > Примечание: все внутренние сервисы работают внутри сети `infra` и не публикуют порты наружу.
 

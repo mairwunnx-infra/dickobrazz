@@ -26,10 +26,10 @@ Dickobrazz stack for production and test workloads in personal server infrastruc
 
 ## File Structure
 - `docker-compose.yaml` - full stack definition (prod + test + backups)
-- `Dockerfile.dickobrazz-*` - custom image definitions for bot/server variants
-- `config.dickobrazz-*.yaml` - embedded runtime config templates
-- `.version.dickobrazz-*` - image version pinning for CI/CD workflows
-- `.github/workflows/build-dickobrazz-*.yml` - image build/push automation
+- `docker-specs/Dockerfile.dickobrazz-*` - custom image definitions for bot/server/grafana/prometheus variants
+- `configurations/**` - embedded runtime config templates grouped by service
+- `versions/.version.dickobrazz-*` - image version pinning for CI/CD workflows
+- `.github/workflows/build-dickobrazz-images.yml` - matrix image build/push automation
 
 ## Important Notes
 - Do not expose internal ports to host for app/db/cache services (use `expose` only)

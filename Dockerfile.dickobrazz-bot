@@ -1,2 +1,0 @@
-FROM ghcr.io/mairwunnx/dickobrazz:1.34.0
-COPY config.dickobrazz-bot.yaml /etc/dickobrazz/config.yaml

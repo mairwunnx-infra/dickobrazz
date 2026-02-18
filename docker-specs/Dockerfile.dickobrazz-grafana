@@ -1,0 +1,5 @@
+FROM grafana/grafana:11.5.0
+
+COPY --chown=472:472 configurations/grafana/grafana-datasources.yaml /etc/grafana/provisioning/datasources/datasources.yaml
+COPY --chown=472:472 configurations/grafana/grafana-dashboards.yaml /etc/grafana/provisioning/dashboards/dashboards.yaml
+COPY --chown=472:472 configurations/grafana/grafana-dashboard-dickobrazz.json /etc/grafana/dashboards/dickobrazz.json

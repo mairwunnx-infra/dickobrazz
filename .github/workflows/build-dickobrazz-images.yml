@@ -4,26 +4,26 @@ on:
   push:
     branches: [ master ]
     paths:
-      - '.version.dickobrazz-bot'
-      - '.version.dickobrazz-bot-test'
-      - '.version.dickobrazz-grafana'
-      - '.version.dickobrazz-prometheus'
-      - '.version.dickobrazz-server'
-      - '.version.dickobrazz-server-test'
-      - 'Dockerfile.dickobrazz-bot'
-      - 'Dockerfile.dickobrazz-bot-test'
-      - 'Dockerfile.dickobrazz-grafana'
-      - 'Dockerfile.dickobrazz-prometheus'
-      - 'Dockerfile.dickobrazz-server'
-      - 'Dockerfile.dickobrazz-server-test'
-      - 'config.dickobrazz-bot.yaml'
-      - 'config.dickobrazz-bot-test.yaml'
-      - 'config.dickobrazz-server.yaml'
-      - 'config.dickobrazz-server-test.yaml'
-      - 'grafana-datasources.yaml'
-      - 'grafana-dashboards.yaml'
-      - 'grafana-dashboard-dickobrazz.json'
-      - 'prometheus.yml'
+      - 'versions/.version.dickobrazz-bot'
+      - 'versions/.version.dickobrazz-bot-test'
+      - 'versions/.version.dickobrazz-grafana'
+      - 'versions/.version.dickobrazz-prometheus'
+      - 'versions/.version.dickobrazz-server'
+      - 'versions/.version.dickobrazz-server-test'
+      - 'docker-specs/Dockerfile.dickobrazz-bot'
+      - 'docker-specs/Dockerfile.dickobrazz-bot-test'
+      - 'docker-specs/Dockerfile.dickobrazz-grafana'
+      - 'docker-specs/Dockerfile.dickobrazz-prometheus'
+      - 'docker-specs/Dockerfile.dickobrazz-server'
+      - 'docker-specs/Dockerfile.dickobrazz-server-test'
+      - 'configurations/dickobrazz-bot/config.dickobrazz-bot.yaml'
+      - 'configurations/dickobrazz-bot/config.dickobrazz-bot-test.yaml'
+      - 'configurations/dickobrazz-server/config.dickobrazz-server.yaml'
+      - 'configurations/dickobrazz-server/config.dickobrazz-server-test.yaml'
+      - 'configurations/grafana/grafana-datasources.yaml'
+      - 'configurations/grafana/grafana-dashboards.yaml'
+      - 'configurations/grafana/grafana-dashboard-dickobrazz.json'
+      - 'configurations/prometheus/prometheus.yml'
       - '.github/workflows/build-dickobrazz-images.yml'
 
 permissions:
@@ -50,59 +50,59 @@ jobs:
         include:
           - display_name: Dickobrazz Bot
             image_name: dickobrazz-bot
-            dockerfile: Dockerfile.dickobrazz-bot
-            version_file: .version.dickobrazz-bot
+            dockerfile: docker-specs/Dockerfile.dickobrazz-bot
+            version_file: versions/.version.dickobrazz-bot
             watch_files: |
-              .version.dickobrazz-bot
-              Dockerfile.dickobrazz-bot
-              config.dickobrazz-bot.yaml
+              versions/.version.dickobrazz-bot
+              docker-specs/Dockerfile.dickobrazz-bot
+              configurations/dickobrazz-bot/config.dickobrazz-bot.yaml
               .github/workflows/build-dickobrazz-images.yml
           - display_name: Dickobrazz Bot Test
             image_name: dickobrazz-bot-test
-            dockerfile: Dockerfile.dickobrazz-bot-test
-            version_file: .version.dickobrazz-bot-test
+            dockerfile: docker-specs/Dockerfile.dickobrazz-bot-test
+            version_file: versions/.version.dickobrazz-bot-test
             watch_files: |
-              .version.dickobrazz-bot-test
-              Dockerfile.dickobrazz-bot-test
-              config.dickobrazz-bot-test.yaml
+              versions/.version.dickobrazz-bot-test
+              docker-specs/Dockerfile.dickobrazz-bot-test
+              configurations/dickobrazz-bot/config.dickobrazz-bot-test.yaml
               .github/workflows/build-dickobrazz-images.yml
           - display_name: Dickobrazz Server
             image_name: dickobrazz-server
-            dockerfile: Dockerfile.dickobrazz-server
-            version_file: .version.dickobrazz-server
+            dockerfile: docker-specs/Dockerfile.dickobrazz-server
+            version_file: versions/.version.dickobrazz-server
             watch_files: |
-              .version.dickobrazz-server
-              Dockerfile.dickobrazz-server
-              config.dickobrazz-server.yaml
+              versions/.version.dickobrazz-server
+              docker-specs/Dockerfile.dickobrazz-server
+              configurations/dickobrazz-server/config.dickobrazz-server.yaml
               .github/workflows/build-dickobrazz-images.yml
           - display_name: Dickobrazz Server Test
             image_name: dickobrazz-server-test
-            dockerfile: Dockerfile.dickobrazz-server-test
-            version_file: .version.dickobrazz-server-test
+            dockerfile: docker-specs/Dockerfile.dickobrazz-server-test
+            version_file: versions/.version.dickobrazz-server-test
             watch_files: |
-              .version.dickobrazz-server-test
-              Dockerfile.dickobrazz-server-test
-              config.dickobrazz-server-test.yaml
+              versions/.version.dickobrazz-server-test
+              docker-specs/Dockerfile.dickobrazz-server-test
+              configurations/dickobrazz-server/config.dickobrazz-server-test.yaml
               .github/workflows/build-dickobrazz-images.yml
           - display_name: Dickobrazz Grafana
             image_name: dickobrazz-grafana
-            dockerfile: Dockerfile.dickobrazz-grafana
-            version_file: .version.dickobrazz-grafana
+            dockerfile: docker-specs/Dockerfile.dickobrazz-grafana
+            version_file: versions/.version.dickobrazz-grafana
             watch_files: |
-              .version.dickobrazz-grafana
-              Dockerfile.dickobrazz-grafana
-              grafana-datasources.yaml
-              grafana-dashboards.yaml
-              grafana-dashboard-dickobrazz.json
+              versions/.version.dickobrazz-grafana
+              docker-specs/Dockerfile.dickobrazz-grafana
+              configurations/grafana/grafana-datasources.yaml
+              configurations/grafana/grafana-dashboards.yaml
+              configurations/grafana/grafana-dashboard-dickobrazz.json
               .github/workflows/build-dickobrazz-images.yml
           - display_name: Dickobrazz Prometheus
             image_name: dickobrazz-prometheus
-            dockerfile: Dockerfile.dickobrazz-prometheus
-            version_file: .version.dickobrazz-prometheus
+            dockerfile: docker-specs/Dockerfile.dickobrazz-prometheus
+            version_file: versions/.version.dickobrazz-prometheus
             watch_files: |
-              .version.dickobrazz-prometheus
-              Dockerfile.dickobrazz-prometheus
-              prometheus.yml
+              versions/.version.dickobrazz-prometheus
+              docker-specs/Dockerfile.dickobrazz-prometheus
+              configurations/prometheus/prometheus.yml
               .github/workflows/build-dickobrazz-images.yml
 
     steps:
