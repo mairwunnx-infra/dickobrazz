@@ -1,2 +1,2 @@
-FROM ghcr.io/mairwunnx/dickobrazz-server:1.0.3
+FROM ghcr.io/mairwunnx/dickobrazz-server:1.0.4
 COPY configurations/dickobrazz-server/config.dickobrazz-server-test.yaml /usr/src/app/config.yaml
