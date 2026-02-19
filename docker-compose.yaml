@@ -14,7 +14,7 @@ x-backup-common-env: &backup-common-env
   BACKUP_RETENTION_DAYS: ${BACKUP_RETENTION_DAYS}
 services:
   dickobrazz-server:
-    image: ghcr.io/mairwunnx-infra/dickobrazz-server:1.0.5
+    image: ghcr.io/mairwunnx-infra/dickobrazz-server:1.0.6
     container_name: dickobrazz-server
     cpus: '0.25'
     depends_on: [ dickobrazz-redis, dickobrazz-mongo ]
@@ -132,7 +132,7 @@ services:
     volumes:
       - dickobrazz-redis-data:/data
   dickobrazz-server-test:
-    image: ghcr.io/mairwunnx-infra/dickobrazz-server-test:1.0.5
+    image: ghcr.io/mairwunnx-infra/dickobrazz-server-test:1.0.6
     container_name: dickobrazz-server-test
     cpus: '0.25'
     depends_on: [ dickobrazz-redis-test, dickobrazz-mongo-test ]
