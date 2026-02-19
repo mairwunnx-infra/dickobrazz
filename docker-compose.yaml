@@ -256,7 +256,7 @@ services:
       - '--web.console.libraries=/usr/share/prometheus/console_libraries'
       - '--web.console.templates=/usr/share/prometheus/consoles'
       - '--web.enable-lifecycle'
-    image: ghcr.io/mairwunnx-infra/dickobrazz-prometheus:2.55.1
+    image: ghcr.io/mairwunnx-infra/dickobrazz-prometheus:2.55.1-1
     container_name: dickobrazz-prometheus
     cpus: '0.2'
     depends_on:
